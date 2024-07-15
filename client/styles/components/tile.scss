@@ -1,0 +1,55 @@
+
+@mixin tile-base {
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  background-color: rgb(0,0,0);
+
+  transition-property: transform;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+
+  .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 64px;
+    width: 64px;
+    background-size: 64px 64px;
+  }
+}
+
+#dungeonGrid .tile {
+  @include tile-base;
+}
+
+#tileShelf .tile {
+  @include tile-base;
+
+  bottom: 10px;
+  cursor: grab;
+  box-shadow: 0 0 2px black, 5px 5px 10px rgba(0,0,0,0.5);
+  z-index: $z-shelved-tile;
+
+  &.picked-up {
+    filter: grayscale(1);
+    opacity: 0.33;
+  }
+}
+
+#dragElement {
+  @include tile-base;
+
+  pointer-events: none;
+  z-index: $z-drag-element;
+
+  .layer {
+    box-shadow: 0 0 0 -20px rgba(250,250,250,0) inset;
+    transition-property: box-shadow;
+    transition-duration: 300ms;
+  }
+  .highlight-n.highlight-active { box-shadow: 0  15px 10px -12px rgba(250,250,250,1) inset; }
+  .highlight-s.highlight-active { box-shadow: 0 -15px 10px -12px rgba(250,250,250,1) inset; }
+  .highlight-e.highlight-active { box-shadow: -15px 0 10px -12px rgba(250,250,250,1) inset; }
+  .highlight-w.highlight-active { box-shadow:  15px 0 10px -12px rgba(250,250,250,1) inset; }
+}

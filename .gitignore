@@ -1,0 +1,15 @@
+
+.nyc_output
+.idea
+
+/client/lib/*.js
+/client/onyx.css
+/client/onyx.css.map
+/coverage
+/dist
+/test/*.json
+/test/*.log
+
+# NPM
+/node_modules
+package-lock.json

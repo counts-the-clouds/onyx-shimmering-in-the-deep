@@ -1,0 +1,91 @@
+
+#dungeonView {
+
+  #tileBag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 160px;
+    height: 120px;
+
+    z-index: $z-tile-bag;
+
+    .wing {
+      position: absolute;
+      top: 20px;
+      width: 20px;
+      height: 100px;
+      filter: brightness(0.666);
+    }
+
+    .left-wing {
+      left: 0;
+      border-top-left-radius: 10px;
+      background-image: url("../assets/ui/tile-bag-left.png");
+      box-shadow: $shadow-large-highlight;
+      z-index: calc($z-tile-bag + 10);
+    }
+
+    .right-wing {
+      right: 0;
+      border-top-right-radius: 10px;
+      background-image: url("../assets/ui/tile-bag-right.png");
+      box-shadow: $shadow-frame, $shadow-large-antihighlight;
+      z-index: calc($z-tile-bag + 20);
+    }
+
+    .body {
+      position: absolute;
+      top: 0;
+    }
+
+    .standard-body {
+      left: 20px;
+      width: 120px;
+      height: 120px;
+      border-radius: 10px 10px 0 0;
+
+      box-shadow: $shadow-frame, $shadow-large-highlight, $shadow-large-antihighlight;
+      background-image: url("../assets/ui/tile-bag-middle.png");
+      z-index: calc($z-tile-bag + 30);
+    }
+
+    .sequence-body {
+      margin-top: 10px;
+      left: 30px;
+      width: 100px;
+      height: 100px;
+
+      box-shadow: 3px 3px 4px rgba(0,0,0,0.6),
+                  1px 1px 2px rgba(0,0,0,0.4);
+
+      z-index: calc($z-tile-bag + 40);
+    }
+
+    .wing-below { top: 200px }
+    .wing-animate {
+      transition-property: top;
+      transition-duration: 1000ms;
+      transition-timing-function: ease-out;
+    }
+
+    .body-below { top: 120px; }
+    .body-animate {
+      transition-property: top;
+      transition-duration: 500ms;
+      transition-timing-function: ease-out;
+    }
+
+
+  }
+}
+
+
+
+
+
+
+
+
+
+

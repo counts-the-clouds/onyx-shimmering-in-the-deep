@@ -1,0 +1,36 @@
+{
+  "name": "Onyx",
+  "version": "0.0.0",
+  "description": "Onyx",
+  "author": "Counts The Clouds",
+  "homepage": "https://water-through-fog.com/",
+  "main": "main.js",
+  "build": {
+    "appId": "com.water-through-fog.onyx",
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "dist": "electron-builder",
+    "start": "electron . --development",
+    "spec": "mocha spec/**/*-spec.js --test",
+    "cov": "nyc --reporter=html mocha spec/**/*-spec.js --test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chai": "4.4.1",
+    "electron": "^31.1.0",
+    "electron-builder": "24.13.3",
+    "mocha": "10.5.2",
+    "nyc": "^17.0.0"
+  }
+}

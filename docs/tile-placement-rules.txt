@@ -1,0 +1,5 @@
+
+no-discard         | This tile cannot be discarded.
+no-rotate          | This tile cannot be rotated.
+place-next         | This tile must be placed next.
+place-on-origin    | This tile can only be placed on the origin point. (Only used on the destroyed-caravan)

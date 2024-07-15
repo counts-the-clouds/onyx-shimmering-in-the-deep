@@ -1,0 +1,32 @@
+#dungeonView {
+
+  #tileShelf {
+    position: absolute;
+    bottom: 0;
+    left: 150px;
+    height: 50px;
+    width: 30px;
+
+    padding: 0 40px;
+
+    display: flex;
+
+    z-index: $z-tile-shelf;
+    border-top: $border-normal;
+    border-radius: 10px 10px 0 0;
+    background-image: url("../assets/ui/tile-shelf.png");
+    box-shadow: 0 2px 4px rgba(250,250,250,0.1) inset;
+
+    .shelf-space {
+      position: relative;
+      top: -1px;
+      background-color: rgba(0,0,0,0.2);
+      width: 64px;
+      height: 40px;
+      margin-left: 10px;
+      box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9) inset;
+      border-top: 1px solid rgb(20,20,20);
+    }
+  }
+
+}

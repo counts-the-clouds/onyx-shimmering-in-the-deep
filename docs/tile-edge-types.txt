@@ -1,0 +1,10 @@
+
+any            | A special edge that allows anything to be placed next to it.
+forbidden      | A special edge that allows nothing to be placed next to it, even other forbidden edges.
+forest-path    | An edge that's only used in the first part of the baseline game.
+
+stone          | Simple edge, a solid surface
+room           | Simple edge, a large open space
+hall           | Simple edge, a narrow corridor
+river          | Simple edge, running water
+lake           | Simple edge, an expanse of water

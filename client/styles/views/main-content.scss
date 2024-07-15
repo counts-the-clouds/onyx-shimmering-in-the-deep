@@ -1,0 +1,21 @@
+
+#mainContent {
+}
+
+#activeBackground {
+  z-index: $z-background;
+}
+
+#mainCover {
+  @include full-screen;
+  background-color: rgb(0,0,0);
+  z-index: $z-main-cover;
+}
+
+.main-loading {
+  .loading {
+    text-align: center;
+    margin-top: 300px;
+    font-size: $fs-huge;
+  }
+}

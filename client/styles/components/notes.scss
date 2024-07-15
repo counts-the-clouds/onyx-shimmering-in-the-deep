@@ -1,0 +1,39 @@
+
+#noteArea {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  max-width: 400px;
+  padding: 10px;
+
+  font-family: "habibi";
+
+  border: $border-normal;
+  background-color: $bg-frame;
+  box-shadow: $shadow-frame;
+
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 2000ms;
+
+  z-index: $z-overlay;
+
+  .key {
+    display: inline-block;
+    padding: 0px 7px;
+
+    font-family: "roboto";
+    font-size: 18px;
+
+    border: $border-light;
+    border-radius: 4px;
+    box-shadow: $shadow-button;
+    background-color: rgba(120, 110, 100, 0.4);
+  }
+}
+
+#noteArea.show {
+  opacity:1;
+}
+
+

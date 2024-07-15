@@ -1,0 +1,28 @@
+#dungeonView {
+
+  #dungeonBottomMatter {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+  }
+
+  #dungeonStatusBar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    z-index: $z-status-bar;
+
+    border-top: $border-normal;
+    background-image: url("../assets/ui/status-bar.png");
+    box-shadow: 0 2px 4px rgba(250,250,250,0.1) inset;
+  }
+
+  #dungeonViewport {
+    @include full-screen;
+    z-index: $z-viewport;
+    background-color: rgb(10,10,10);
+  }
+
+}

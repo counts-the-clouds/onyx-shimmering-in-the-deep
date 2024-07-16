@@ -23,12 +23,12 @@
       transition-duration: 1000ms;
 
       .position-label {
-        display: none;
+        // display: none;
         text-align: center;
         margin-top: 25px;
         font-family: roboto-mono;
         font-size: 6pt;
-        color: rgba(150,150,200,0.75)
+        color: rgba(150,150,200,0.75);
       }
     }
 

@@ -6,6 +6,11 @@ window.KeyboardMovement = (function() {
 
   let $movementState = { speed:_slowSpeed, n:false, s:false, e:false, w:false };
 
+  // TODO: This still feels a bit jank. I think we need a separate class to
+  //       monitor the state of the keyboard. It should keep track of all the
+  //       key up and down events, turning keys off and on when the events
+  //       happen. Then we can query the keyboard state for what keys are down.
+  //
   function init() {
     window.addEventListener('keydown', event => {
       if (DungeonView.isVisible() && DungeonView.isMovementEnabled()) {

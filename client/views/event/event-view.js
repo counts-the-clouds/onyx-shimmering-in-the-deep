@@ -2,6 +2,7 @@ window.EventView = (function() {
 
   let $event;
   let $returnState;
+  let $previousMovementState;
 
   function init() {
     X.onClick('#clickAdvance', nextPage);
@@ -9,11 +10,13 @@ window.EventView = (function() {
   }
 
   function show(data) {
+    $previousMovementState = DungeonView.isMovementEnabled();
     $event = TileEvent.unpack(data.event);
     $returnState = { };
 
     log("Show",{ system:"EventView", data:data });
 
+    DungeonView.setMovementEnabled(false);
     setLayout();
     showStage();
   }
@@ -26,6 +29,7 @@ window.EventView = (function() {
     X.removeClass('#eventView .continue-button','show');
 
     ClientCommands.send('event.finished', $event.pack(), $returnState);
+    DungeonView.setMovementEnabled($previousMovementState);
 
     $event.onClientFinish($returnState);
     $event = null;

@@ -15,7 +15,9 @@ global.GameBuilder = (function() {
   // baseline game, assuming it's never been played before.
   function beginGame() {
     GameState.clear();
-    beginBaselineGame();
+
+    // beginBaselineGame();
+    beginDefaultGame();
 
     // Once whichever game has been built we need to save the current game
     // state as well as the world state (in case starting a new game modifies
@@ -23,13 +25,7 @@ global.GameBuilder = (function() {
     GameState.saveState();
     WorldState.saveState();
 
-    // TODO: This obviously needs to go somewhere else.
-    Switchboard.render({
-      showView: 'DungeonView',
-      flags: GameState.getFlags(),
-      tileShelf: TileShelf.pack(),
-      dungeonGrid: DungeonGrid.pack(),
-    });
+    DungeonController.renderDungeon();
   }
 
   // TODO: I think a lot of the GameBuilder stuff should be moved into data
@@ -37,6 +33,7 @@ global.GameBuilder = (function() {
 
   function beginBaselineGame() {
     GameState.setFlag('baseline-game',true);
+    GameState.setFlag('tile-bag.show',false);
 
     let startingTile = Tile('forest-1',{
       placementEvent: 'game-start-1',
@@ -47,8 +44,16 @@ global.GameBuilder = (function() {
     TileShelf.addTile(startingTile);
   }
 
+  function beginDefaultGame() {
+    let coreTile = Tile('dungeon-core',{});
+        coreTile.buildSegments();
+
+    DungeonGrid.setCell(Coordinates.fromGlobal(0,0), coreTile);
+  }
+
   return {
     newGame,
+    beginDefaultGame,
   };
 
 })();

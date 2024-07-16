@@ -30,7 +30,6 @@ window.DungeonChunkComponent = function(x,y) {
 
     let cellElement = X.createElement(`
       <div class='dungeon-cell index-${i}'>
-        <div class='position-label'>(${coords.gx},${coords.gy})</div>
       </div>`);
 
     this.checkOrigin(i,cellElement);
@@ -42,15 +41,23 @@ window.DungeonChunkComponent = function(x,y) {
     cellElement.dataset.cy = $cy;
     cellElement.dataset.ci = i;
 
-    // TODO: Only add if empty.
-    X.addClass(cellElement,'empty');
-
-    cellElement.addEventListener('mouseover',event => {
+    cellElement.addEventListener('mouseover', event => {
       DungeonView.setMouseOverCell(coords.gx, coords.gy, cellElement, event);
     });
 
+    if (cell === 0) {
+      X.addClass(cellElement,'empty');
+      cellElement.appendChild(X.createElement(`<div class='position-label'>(${coords.gx},${coords.gy})</div>`))
+    }
+
+    if (cell !== 0) {
+      cellElement.appendChild(TileComponent(Tile.unpack(cell)).getElement());
+    }
+
     return cellElement;
   }
+
+
 
   function getCell(coords) {
     return $element.querySelectorAll(`.index-${coords.ci}`)[0];

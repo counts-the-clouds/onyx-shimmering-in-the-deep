@@ -33,6 +33,18 @@ global.DungeonController = (function() {
     log(action,{ system:'DungeonController', data:data });
   }
 
-  return { init };
+  function renderDungeon() {
+    Switchboard.render({
+      showView: 'DungeonView',
+      flags: GameState.getFlags(),
+      tileShelf: TileShelf.pack(),
+      dungeonGrid: DungeonGrid.pack(),
+    });
+  }
+
+  return {
+    init,
+    renderDungeon
+  };
 
 })();

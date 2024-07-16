@@ -21,7 +21,7 @@ global.Logger = (function() {
 
     sendToClient(message,options);
     printToFile(asString,options);
-    printToConsole(asString,options);
+    // printToConsole(asString,options);
   }
 
   // Calls the normal log at the highest level with the type set to error.

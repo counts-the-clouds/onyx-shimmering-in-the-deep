@@ -42,6 +42,7 @@ global.GameBuilder = (function() {
     startingTile.buildSegments();
 
     TileShelf.addTile(startingTile);
+    NoteController.show('baseline-game.place-tile');
   }
 
   function beginDefaultGame() {

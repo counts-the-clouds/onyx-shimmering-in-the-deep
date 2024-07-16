@@ -16,6 +16,7 @@ window.Renderer = (function() {
       // There will be more types I think...
       switch (data.type) {
         case 'alert': return Alert.showServerAlert(data);
+        case 'note':  return NoteManager.show(data.code);
         case 'event': return EventView.show(data);
         default:
           console.error("=== Unknown Render Type ===");

@@ -149,11 +149,12 @@ window.PlacementManager = (function() {
 
       if (canPlaceTile(cellData)) {
         DragonDrop.stopDrag();
+        NoteManager.clear();
+
         ClientCommands.send('dungeon.placeTile',placementData).then(response => {
           if (response.result === _success) {
             TileShelfComponent.setShelfState(response.tileShelf.shelf);
             DungeonGridComponent.placeTile(response.tile);
-            NoteManager.clear();
             executePlacementTrigger(response.tile);
           }
         });

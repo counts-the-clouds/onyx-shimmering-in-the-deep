@@ -25,7 +25,6 @@ window.DungeonView = (function() {
       TileBagComponent.refresh();
 
       MainContent.hideCover({ fadeTime:500 });
-      NoteManager.enable('baseline-game.place-tile', state.flags['baseline-game']);
     });
   }
 

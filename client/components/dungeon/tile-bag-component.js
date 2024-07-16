@@ -1,5 +1,14 @@
 window.TileBagComponent = (function() {
 
+  // The game state has been changed. This may put the tile bag into a
+  // completely different state. The tile bag should be shown by default, so
+  // it's fine if tile-bag.show is undefined.
+  function refresh() {
+    ClientCommands.send('game.getFlag','tile-bag.show').then(flag => {
+      (flag === false) ? hide() : show();
+    });
+  }
+
   function show() { X.removeClass('#tileBag','hide'); }
   function hide() { X.addClass('#tileBag','hide'); }
 
@@ -17,6 +26,7 @@ window.TileBagComponent = (function() {
   }
 
   return {
+    refresh,
     show,
     hide,
     drawTile

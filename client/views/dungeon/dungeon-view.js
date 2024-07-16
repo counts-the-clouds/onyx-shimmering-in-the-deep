@@ -16,13 +16,13 @@ window.DungeonView = (function() {
     $isVisible = true;
     $movementEnabled = false;
 
-    log("Show",{ system:"DungeonView", data:state });
+    log("Show",{ system:"DungeonView" });
 
     MainContent.show({ path:"client/views/dungeon/dungeon-view.html" }).then(() => {
       DungeonGridComponent.setState(state.dungeonGrid);
-
       TileShelfComponent.setShelfSize(state.tileShelf.size);
       TileShelfComponent.setShelfState(state.tileShelf.shelf);
+      TileBagComponent.refresh();
 
       MainContent.hideCover({ fadeTime:500 });
       NoteManager.enable('baseline-game.place-tile', state.flags['baseline-game']);
@@ -32,8 +32,6 @@ window.DungeonView = (function() {
   function isVisible() { return $isVisible; }
   function isMovementEnabled() { return $movementEnabled; }
   function setMovementEnabled(enable) { $movementEnabled = enable; }
-
-
 
   // === Mouse Over Actions ====================================================
   // A single mouse listener on the window won't work for mouse over actions on

@@ -26,6 +26,7 @@ global.GameState = (function() {
   // it can't store any classes.
   function setFlag(flag, value) { $currentState.flags[flag] = value; }
   function clearFlag(flag) { delete $currentState.flags[flag]; }
+  function getFlag(flag) { return $currentState.flags[flag]; }
   function getFlags() { return { ...$currentState.flags }; }
 
   function saveState() {
@@ -62,6 +63,7 @@ global.GameState = (function() {
     nextTileID,
     setFlag,
     clearFlag,
+    getFlag,
     getFlags,
     saveState,
     loadState,

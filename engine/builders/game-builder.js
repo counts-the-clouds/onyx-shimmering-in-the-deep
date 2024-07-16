@@ -16,8 +16,8 @@ global.GameBuilder = (function() {
   function beginGame() {
     GameState.clear();
 
-    // beginBaselineGame();
-    beginDefaultGame();
+    beginBaselineGame();
+    // beginDefaultGame();
 
     // Once whichever game has been built we need to save the current game
     // state as well as the world state (in case starting a new game modifies

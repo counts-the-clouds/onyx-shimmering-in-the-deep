@@ -32,7 +32,6 @@ global.GameBuilder = (function() {
   //       objects if we start to have a lot of different game types.
 
   function beginBaselineGame() {
-    GameState.setFlag('baseline-game',true);
     GameState.setFlag('tile-bag.show',false);
 
     let startingTile = Tile('forest-1',{

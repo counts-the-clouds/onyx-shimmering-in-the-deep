@@ -1,7 +1,7 @@
 window.DungeonView = (function() {
 
   let $isVisible;
-  let $movementEnabled;
+  let $movementEnabled = true;
 
   let $mouseOverCell;
   let $mouseOverAction;
@@ -14,7 +14,6 @@ window.DungeonView = (function() {
 
   function show(state) {
     $isVisible = true;
-    $movementEnabled = false;
 
     log("Show",{ system:"DungeonView" });
 

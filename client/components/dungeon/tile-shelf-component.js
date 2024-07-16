@@ -57,7 +57,7 @@ window.TileShelfComponent = (function() {
   function performDrawnActions(tile) {
     const note = tile.getNote();
     if (note && note.getTrigger() === _drawn) {
-      NoteManager.enable(note.getCode());
+      NoteManager.show(note.getCode());
     }
   }
 

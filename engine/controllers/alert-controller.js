@@ -1,4 +1,4 @@
-global.Alert = (function() {
+global.AlertController = (function() {
 
   function sendInfo(options) { sendAlert(options, 'info'); }
   function sendSuccess(options) { sendAlert(options, 'success'); }
@@ -17,6 +17,8 @@ global.Alert = (function() {
       throw "Alerts must at least have a message"
     }
 
+    // If we're running the specs the Browser won't exist, so if models send
+    // alerts to the client it has to go through the Switchboard.
     Switchboard.render({
       type: 'alert',
       classname: severity,
